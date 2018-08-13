@@ -5,8 +5,10 @@ Answer the following questions:
 When a value that is inputted is not a number
 
 2. When will a ZeroDivisionError occur?
+When the number is not divisible by 0
 
 3. Could you change the code to avoid the possibility of a ZeroDivisionError?
+No
 """
 
 try:

@@ -15,15 +15,17 @@ MIN_PRICE = 1.0
 MAX_PRICE = 100.0
 INITIAL_PRICE = 10.0
 INITIAL_DAY = 0
-OUTPUT_FILE = 'conrad.txt'
+OUTPUT_FILE = 'stock_output.txt'
+
+out_file = open(OUTPUT_FILE, 'w')
 
 price = INITIAL_PRICE
 day = INITIAL_DAY
-print("${:,.2f}".format(price))
-out_file = open(OUTPUT_FILE, 'w')
+print("Starting price is ${:,.2f}".format(price), file=out_file)
 
 while price >= MIN_PRICE and price <= MAX_PRICE:
     price_change = 0
+    day += 1
     # generate a random integer of 1 or 2
     # if it's 1, the price increases, otherwise it decreases
     if random.randint(1, 2) == 1:
@@ -35,11 +37,7 @@ while price >= MIN_PRICE and price <= MAX_PRICE:
         # between negative MAX_DECREASE and 0
         price_change = random.uniform(-MAX_DECREASE, 0)
 
-    day += 1
     price *= (1 + price_change)
+    print("On day {} price is ${:,.2f}".format(day, price), file=out_file)
 
-    statement = "On day {} price is ${:,.2f}".format(day, price)
-    print(statement)
-    out_file.write(statement)
-    out_file.write('\n')
 out_file.close()
