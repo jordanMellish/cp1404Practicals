@@ -11,14 +11,13 @@ def main():
 
 def convert_score_to_grade(score):
     if score < 0 or score > 100:
-        grade = 'Invalid score'
+        return 'Invalid score'
     elif score >= 90:
-        grade = 'Excellent'
+        return 'Excellent'
     elif score >= 50:
-        grade = 'Passable'
+        return 'Passable'
     else:
-        grade = 'Bad'
-    return grade
+        return 'Bad'
 
 
 main()
