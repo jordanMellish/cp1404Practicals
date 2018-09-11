@@ -14,14 +14,12 @@ print(ruby.is_dynamic())
 print(python.is_dynamic())
 print(visual_basic.is_dynamic())
 
-languages.append(str(ruby))
-languages.append(str(python))
-languages.append(str(visual_basic))
-print(languages)
+languages.append(ruby)
+languages.append(python)
+languages.append(visual_basic)
 
-dynamic_languages = []
+# Loop for printing dynamic languages.
+print("The dynamically typed languages are")
 for language in languages:
-    language = language.split()
-    if language[1] == "Dynamic":
-        dynamic_languages.append(language[0])
-print(dynamic_languages)
+    if language.is_dynamic():
+        print(language.name)
