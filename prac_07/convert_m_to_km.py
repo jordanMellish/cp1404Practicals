@@ -9,3 +9,28 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 
+__author__ = 'Jordan Mellish'
+
+
+class MilesConversionApp(App):
+    """ SquareNumberApp is a Kivy App for squaring a number """
+
+    def build(self):
+        """ build the Kivy app from the kv file """
+        Window.size = (300, 200)
+        self.title = "Conversion"
+        self.root = Builder.load_file('convert_m_to_km.kv')
+        return self.root
+
+    def handle_calculate(self, value):
+        """ handle calculation (could be button press or other call), output result to label widget """
+        result = value * 1.61
+        self.root.ids.output_label.text = str(result)
+
+    def handle_increment(self, number):
+        value = (int(self.root.ids.input_number.text) + number)
+        self.root.ids.input_number.text = str(value)
+
+
+
+MilesConversionApp().run()
