@@ -24,7 +24,10 @@ class MilesConversionApp(App):
 
     def handle_calculate(self, value):
         """ handle calculation (could be button press or other call), output result to label widget """
-        result = value * 1.61
+        try:
+            result = int(value) * 1.61
+        except ValueError:
+            result = 0.0
         self.root.ids.output_label.text = str(result)
 
     def handle_increment(self, number):
